@@ -1,0 +1,156 @@
+.navbar {
+    position: fixed;
+    width: 100%;
+    z-index: 50;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    height: 5rem; /* Artırıldı */
+  }
+  
+  .navbarInitial {
+    background: transparent;
+    box-shadow: none;
+  }
+  
+  .navbarScrolled {
+    background-color: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+    height: 4.5rem; /* Artırıldı */
+  }
+  
+  .navContent {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem; /* Eklendi */
+  }
+  
+  .logo {
+    font-size: 1.5rem; /* Artırıldı */
+    font-weight: 700;
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -0.5px;
+    transition: opacity 0.2s ease;
+    padding: 0.5rem 0;
+  }
+  
+  .logo:hover {
+    opacity: 0.85;
+  }
+  
+  .navLinks {
+    display: none;
+    gap: 2.5rem; /* Artırıldı */
+  }
+  
+  .navLink {
+    position: relative;
+    color: #1e293b;
+    font-weight: 500;
+    font-size: 1rem; /* Artırıldı */
+    transition: color 0.2s ease;
+    padding: 0.75rem 0; /* Artırıldı */
+  }
+  
+  .navLink::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+  }
+  
+  .navLink:hover {
+    color: #3b82f6;
+  }
+  
+  .navLink:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+  
+  .mobileMenuButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem; /* Artırıldı */
+    height: 3rem; /* Artırıldı */
+    border-radius: 0.5rem;
+    color: #1e293b;
+    transition: all 0.2s ease;
+  }
+  
+  .mobileMenuButton:hover {
+    background-color: rgba(59, 130, 246, 0.1);
+    color: #3b82f6;
+  }
+  
+  .mobileMenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(12px);
+    padding: 1rem; /* Artırıldı */
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    transform-origin: top;
+    animation: slideDown 0.2s ease-out forwards;
+  }
+  
+  .mobileNavLink {
+    display: block;
+    padding: 1rem 1.25rem; /* Artırıldı */
+    color: #1e293b;
+    font-weight: 500;
+    font-size: 1.125rem; /* Artırıldı */
+    border-radius: 0.5rem;
+    transition: all 0.2s ease;
+    margin-bottom: 0.5rem; /* Eklendi */
+  }
+  
+  .mobileNavLink:hover {
+    background-color: rgba(59, 130, 246, 0.1);
+    color: #3b82f6;
+  }
+  
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .navLinks {
+      display: flex;
+    }
+    
+    .mobileMenuButton {
+      display: none;
+    }
+  }
+  
+  @media (max-width: 1024px) {
+    .navLink {
+      font-size: 0.9375rem;
+    }
+    
+    .logo {
+      font-size: 1.375rem;
+    }
+  }

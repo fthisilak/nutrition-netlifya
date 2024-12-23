@@ -1,0 +1,74 @@
+backend:
+  name: git-gateway
+  branch: main
+  local_backend: true
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+local_backend: true
+
+collections:
+  - name: "beslenme-programlari"
+    label: "Beslenme Programları"
+    folder: "src/content/beslenme-programlari"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Başlık", name: "title", widget: "string"}
+      - {label: "Yayın Tarihi", name: "date", widget: "datetime"}
+      - {label: "Program Resmi", name: "image", widget: "image"}
+      - {label: "Kısa Açıklama", name: "description", widget: "text"}
+      - {label: "Program Tipi", name: "category", widget: "select", options: ["kilo-yonetimi", "hastaliklarda-beslenme", "ozel-beslenme"]}
+      - {label: "Öne Çıkan", name: "featured", widget: "boolean", default: false}
+      - label: "Program Özellikleri"
+        name: "features"
+        widget: "list"
+      - {label: "Program Detayları", name: "content", widget: "markdown"}
+      - {label: "Program Süresi", name: "duration", widget: "string"}
+      - {label: "Fiyat", name: "price", widget: "string", required: false}
+
+  - name: "fit-tarifler"
+    label: "Fit Tarifler"
+    folder: "src/content/fit-tarifler"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Tarif Adı", name: "title", widget: "string"}
+      - {label: "Yayın Tarihi", name: "date", widget: "datetime"}
+      - {label: "Tarif Resmi", name: "image", widget: "image"}
+      - {label: "Kısa Açıklama", name: "description", widget: "text"}
+      - {label: "Kategori", name: "category", widget: "select", options: ["kahvalti", "ana-yemek", "tatli", "icecek", "atistirmalik"]}
+      - {label: "Hazırlama Süresi", name: "prepTime", widget: "string"}
+      - {label: "Pişirme Süresi", name: "cookTime", widget: "string", required: false}
+      - {label: "Toplam Süre", name: "totalTime", widget: "string"}
+      - {label: "Porsiyon", name: "servings", widget: "string"}
+      - {label: "Kalori", name: "calories", widget: "number"}
+      - label: "Malzemeler"
+        name: "ingredients"
+        widget: "list"
+      - {label: "Yapılışı", name: "content", widget: "markdown"}
+      - {label: "Besin Değerleri", name: "nutrition", widget: "object", required: false, fields: [
+          {label: "Protein", name: "protein", widget: "string"},
+          {label: "Karbonhidrat", name: "carbs", widget: "string"},
+          {label: "Yağ", name: "fat", widget: "string"},
+          {label: "Lif", name: "fiber", widget: "string"}
+        ]}
+
+  - name: "saglikli-yasam"
+    label: "Sağlıklı Yaşam"
+    folder: "src/content/health-tips"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Başlık", name: "title", widget: "string"}
+      - {label: "Yayın Tarihi", name: "date", widget: "datetime"}
+      - {label: "Kapak Görseli", name: "image", widget: "image"}
+      - {label: "Kısa Açıklama", name: "description", widget: "text"}
+      - {label: "Kategori", name: "category", widget: "select", options: ["beslenme", "egzersiz", "yasam-tarzi", "psikoloji", "genel-saglik"]}
+      - {label: "Okuma Süresi", name: "readingTime", widget: "string"}
+      - label: "Etiketler"
+        name: "tags"
+        widget: "list"
+      - {label: "İçerik", name: "content", widget: "markdown"}
+      - {label: "Yazar", name: "author", widget: "string", default: "Diyetisyen"}

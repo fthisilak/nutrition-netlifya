@@ -1,0 +1,126 @@
+.servicesContainer {
+  padding: 6rem 0;
+  background-color: rgba(240, 240, 240, 0.95);
+  position: relative;
+  overflow: hidden;
+}
+
+.backgroundPattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.15;
+  --size: 150px;
+  --color: #9e8f8f;
+  background: radial-gradient(
+      circle at 15% 30%,
+      transparent 40%,
+      var(--color) 41%
+    ),
+    radial-gradient(circle at 85% 30%, transparent 40%, var(--color) 41%),
+    radial-gradient(circle at 50% 70%, transparent 40%, var(--color) 41%),
+    radial-gradient(circle at 15% 70%, transparent 40%, var(--color) 41%),
+    radial-gradient(circle at 85% 70%, transparent 40%, var(--color) 41%),
+    linear-gradient(
+      45deg,
+      var(--color) 25%,
+      rgba(0, 0, 0, 0.1) 0,
+      rgba(0, 0, 0, 0.1) 50%,
+      var(--color) 0,
+      var(--color) 75%,
+      rgba(0, 0, 0, 0.15) 0,
+      rgba(0, 0, 0, 0.15) 100%,
+      var(--color) 0
+    );
+  background-size: var(--size) var(--size);
+  z-index: 0;
+}
+
+.sectionTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 3.5rem;
+  color: #0f172a;
+  text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.15);
+  position: relative;
+  z-index: 1;
+}
+
+.servicesGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+@media (min-width: 768px) {
+  .servicesGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.serviceCard {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 1rem;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  height: 100%;
+  text-decoration: none;
+  display: block;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.serviceCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15),
+    0 10px 10px -5px rgba(0, 0, 0, 0.1);
+}
+
+.serviceContent {
+  padding: 2rem;
+  text-align: center;
+}
+
+.iconContainer {
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  box-shadow: 0 4px 6px rgba(59, 130, 246, 0.1);
+}
+
+.icon {
+  width: 1.75rem;
+  height: 1.75rem;
+  color: #2563eb;
+}
+
+.serviceTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #0f172a;
+  margin-bottom: 1rem;
+}
+
+.serviceDescription {
+  color: #334155;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .sectionTitle {
+    font-size: 2rem;
+  }
+}
